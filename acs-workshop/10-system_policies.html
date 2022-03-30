@@ -544,7 +544,77 @@ We will create an example policy for Docker Hub Registry because we dont want to
 </ul>
 </div>
 </li>
+<li>
+<p>Click <code>Next</code></p>
+</li>
+<li>
+<p>In the Policy behavior section, select the Lifecycle stages and Event sources (Runtime lifecycle only) for the policy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Choose Lifecycle Stages to which your policy is applicable, from Build, Deploy, or Runtime.  We will select "Build" and "Deploy" for this example.</p>
+</li>
+</ul>
+</div>
+</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>You can select more than one stage.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Build-time policies apply to image fields such as CVEs and Dockerfile instructions.</p>
+</li>
+<li>
+<p>Deploy-time policies can include all build-time policy criteria but they can also include data from your cluster configurations, such as running in privileged mode or mounting the Docker socket.</p>
+</li>
+<li>
+<p>Runtime policies can include all build-time and deploy-time policy criteria but they can also include data about process executions during runtime.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For Response method, Select <code>Inform and enforce</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/13-policies.png" alt="ACS Policies 13" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s look differences:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Inform to include the violation in the violations list.</p>
+</li>
+<li>
+<p>Inform and enforce to enforce actions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Choose the enforcement behavior for the policy. It is only available for the stages you select when configuring Lifecycle Stages. Select ON (enable) to enforce policy and report a violation, and OFF (disable) to only report a violation. The enforcement behavior is different for each lifecycle stage.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Build</code> - Red Hat Advanced Cluster Security for Kubernetes fails your continuous integration (CI) builds when images match the conditions of the policy.</p>
+</li>
+<li>
+<p><code>Deploy</code> - Red Hat Advanced Cluster Security for Kubernetes blocks creation of deployments that match the conditions of the policy. In clusters with admission controller enforcement, the Kubernetes or OpenShift Container Platform API server blocks all noncompliant deployments. In other clusters, Red Hat Advanced Cluster Security for Kubernetes edits noncompliant deployments to prevent pods from being scheduled.</p>
+</li>
+<li>
+<p><code>Runtime</code> - Red Hat Advanced Cluster Security for Kubernetes kills all pods that match the conditions of the policy or blocks the action taken on the pods.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
