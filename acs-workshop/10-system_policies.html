@@ -494,7 +494,58 @@ Security gets their enforcement, and DevOps sees a “normal” failure from the
 <div class="sect1">
 <h2 id="create_new_policy"><a class="anchor" href="#create_new_policy"></a>Create new Policy</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>You can create new security policies from the system policies view.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the RHACS portal, navigate to Platform Configuration → Policies.</p>
+</li>
+<li>
+<p>Click Create policy</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/11-policies.png" alt="ACS Policies 11" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Enter the following details about your policy in the Policy details section:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enter an example Name for the policy. <code>Example Docker Hub Policy</code>
+We will create an example policy for Docker Hub Registry because we dont want to download images from this registry.</p>
+</li>
+<li>
+<p>Select a Severity level for this policy, either Critical, High, Medium, or Low. You can select <code>Medium</code></p>
+</li>
+<li>
+<p>Select policy Categories you want to apply to this policy. Select <code>Devops Best Practices</code></p>
+</li>
+<li>
+<p>Enter details about the policy in the Description box.</p>
+</li>
+<li>
+<p>Enter an explanation about why the policy exists in the Rationale box. <code>we dont want to download images from this registry.</code></p>
+</li>
+<li>
+<p>Enter steps to resolve violations of this policy in the Guidance box.Developer can see this message. For example <code>You can use just registry.redhat.io images. Please change your current image.</code></p>
+</li>
+<li>
+<p>Optional: Under the MITRE ATT&amp;CK section, select the tactics and the techniques you want to specify for the policy.You can add tactics and techniques for this policy.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/12-policies.png" alt="ACS Policies 12" width="900">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <nav class="pagination">
