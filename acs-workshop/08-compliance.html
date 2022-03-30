@@ -868,30 +868,46 @@ deployed."</p>
 <li>
 <p>Find and click on the policy named, "90-day Image Age" which by default is second in the list. We&#8217;re not going to change this policy other than to enable enforcement.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/compliance/08_compliance.png" alt="ACS 8" width="700">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Click Edit to get to the Policy settings.</p>
-</li>
-<li>
-<p>Click Next at the upper right to get to the Policy Criteria page.</p>
-</li>
-<li>
-<p>Click Next at the upper right to get to the Violations Preview page.</p>
-</li>
-<li>
-<p>Click Next at the upper right to get to the Enforcement Options page.</p>
-</li>
-<li>
-<p>On the enforcement options, click On for both Build and Deploy enforcement. Click Save, and then X to close.</p>
-</li>
-<li>
-<p>At the main System Policies page, find the Policy named, "Latest tag" and repeat steps 3 - 7 to enable enforcement and save the policy.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/compliance/06_nist1.png" alt="ACS 8" width="400">
+<img src="_images/compliance/09_compliance.png" alt="ACS 9" width="700">
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click Next at the left side to get to the Policy behaviour page.</p>
+</li>
+<li>
+<p>On the response method page, click On for both Build and Deploy enforcement. Click Save, and then X to close.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/compliance/10_compliance.png" alt="ACS 10" width="700">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At the main System Policies page, find the Policy named, "Latest tag" and repeat same steps to enable enforcement and save the policy.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -923,26 +939,55 @@ deployed."</p>
 </div>
 <div class="sect2">
 <h3 id="acs_policy_compliance_nist_revert"><a class="anchor" href="#acs_policy_compliance_nist_revert"></a>Revert the Policy Changes</h3>
-<div class="paragraph">
-<p>To avoid rejecting any other deployments to the cluster, you should disable the enforcement after viewing the updated ACS results.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To avoid rejecting any other deployments to the cluster, you should disable the enforcement after viewing the updated ACS results.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Navigate to Platform Configuration &#8594; System Policies
-Find and click on the policy named, "90-day Image Age" which by default is second in the list. Click Edit to get to the Policy settings.</p>
+Find and click on the policy named, "90-day Image Age" which by default is second in the list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/compliance/08_compliance.png" alt="ACS 8" width="700">
+</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Click Next at the upper right to get to the Policy Criteria page.</p>
+<p>Click Edit to get to the Policy settings.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/compliance/09_compliance.png" alt="ACS 9" width="700">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>Click Next at the upper right to get to the Violations Preview page.</p>
+<p>Click Next at the left side to get to the Policy behaviour page.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/compliance/11_compliance.png" alt="ACS 11" width="700">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>Click Next at the upper right to get to the Enforcement Options page.</p>
-</li>
-<li>
-<p>On the enforcement options, click Off for both Build and Deploy enforcement. Click Save, and then X to close.</p>
+<p>On the Response method options, just click Inform. Click Save, and then X to close.</p>
 </li>
 <li>
 <p>At the main System Policies page, find the Policy named, "Latest tag" and repeat steps 3 - 7 to disable enforcement and save the policy.</p>
