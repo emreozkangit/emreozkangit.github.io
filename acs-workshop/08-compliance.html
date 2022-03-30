@@ -528,6 +528,18 @@
 <div class="sect1">
 <h2 id="compliance_operator"><a class="anchor" href="#compliance_operator"></a>Integrating the OpenShift Compliance Operator with ACS</h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should access your bastion host via SSH before do this step.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Red Hat Advanced Cluster Security for Kubernetes supports OpenShift Container Platform configuration compliance standards through an integration with the OpenShift Container Platform Compliance Operator.</p>
 </div>
@@ -541,17 +553,17 @@
 </li>
 </ul>
 </div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-ns.yaml</code></pre>
-</div>
-</div>
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">apiVersion: v1
 kind: Namespace
 metadata:
   name: openshift-compliance</code></pre>
+</div>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-ns.yaml</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -656,11 +668,6 @@ rhcos4-openshift-compliance-pp-c7b548bd-k4sz2   1/1     Running   0          3m2
 </li>
 </ul>
 </div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-scan.yaml</code></pre>
-</div>
-</div>
 <div class="listingblock console-output">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">apiVersion: compliance.openshift.io/v1alpha1
@@ -676,6 +683,11 @@ settingsRef:
   apiGroup: compliance.openshift.io/v1alpha1
   kind: ScanSetting
   name: default</code></pre>
+</div>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-scan.yaml</code></pre>
 </div>
 </div>
 <div class="ulist">
