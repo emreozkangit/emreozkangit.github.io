@@ -615,10 +615,10 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <p>Click <code>Next</code></p>
 </li>
 <li>
-<p>ACS comes some default policy criteria with different categories. <code>Image Registry</code> , <code>Image Contents</code> etc. Let&#8217;s lookup this criterias.You can drag and drop these criterias</p>
+<p>ACS comes some default policy criteria with different categories. <code>Image Registry</code> , <code>Image Contents</code> etc. Let&#8217;s lookup this criterias.You can drag and drop these criterias. For detailed information: <a href="https://docs.openshift.com/acs/3.69/operating/manage-security-policies.html#policy-criteria_manage-security-policies" class="bare">https://docs.openshift.com/acs/3.69/operating/manage-security-policies.html#policy-criteria_manage-security-policies</a></p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/policies/14-policies.png" alt="ACS Policies 14" width="400">
+<img src="_images/policies/14-policies.png" alt="ACS Policies 14" width="200">
 </div>
 </div>
 </li>
@@ -629,6 +629,34 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <img src="_images/policies/15-policies.png" alt="ACS Policies 15" width="800">
 </div>
 </div>
+</li>
+<li>
+<p>Click <code>Next</code></p>
+</li>
+<li>
+<p>In the Policy scope section,we will use default options.Hovewer you can configure the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You can click Add inclusion scope to use Restrict to Scope to enable this policy only for a specific cluster, a namespace, or a label. You can add multiple scopes and also use regular expressions in RE2 Syntax for namespaces and labels.</p>
+</li>
+<li>
+<p>You can click Add exclusion scope to use Exclude by Scope to exclude deployments, clusters, namespaces, and labels you specify, it means that the policy will not apply to the entities that you select. You can add multiple scopes and also use regular expressions in RE2 Syntax for namespaces and labels. However, you cannot use regular expressions for selecting deployments.</p>
+</li>
+<li>
+<p>For Excluded Images (Build Lifecycle only), select all images that you do not want to trigger a violation for.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <code>Next</code></p>
+</li>
+<li>
+<p>In the Review policy section, preview the policy violations at the right side.</p>
+</li>
+<li>
+<p>Click <code>Save</code></p>
 </li>
 </ol>
 </div>
