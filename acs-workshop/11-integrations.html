@@ -518,7 +518,155 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 </div>
 </div>
 </li>
+<li>
+<p>If your test result success,then Click <code>Save</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/05-webhook.png" alt="OAuth 14" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>You should see 2 alert message on your webhook site; Test message and Created Webhook message. Let&#8217;s examine.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/06-webhook.png" alt="OAuth 15" width="800">
+</div>
+</div>
+</li>
 </ol>
+</div>
+<div class="sect2">
+<h3 id="_configuring_policy_notifications"><a class="anchor" href="#_configuring_policy_notifications"></a>Configuring policy notifications</h3>
+<div class="paragraph">
+<p>Now, we will enable notification one of  the policy and  will try to get alert of this policy violations.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the RHACS portal, navigate to <code>Platform Configuration</code> → <code>Policies</code> and Find  <code>Kubernetes Actions: Exec into Pod</code> policy using filter. Follow up the below screenshot steps.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/07-webhook.png" alt="OAuth 16" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Click the name of the policy and <code>Actions</code>and <code>Edit Policy</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/08-webhook.png" alt="OAuth 17" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>At the right side, you should see your webhook name we created earlier. Enable your webhook name and <code>save</code> the policy.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/09-webhook.png" alt="OAuth 18" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Now, you should see like this in the policy page.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/10-webhook.png" alt="OAuth 19" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Let&#8217;s try to create a new violation for this policy. Login your Openshift Console.You can find details on your workshop page as shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/workshop.png" alt="OAuth 20" width="800">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console4.png" alt="OAuth 21" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Try to get terminal one of the pod.Filter and Click <code>payments</code> project as shown below.</p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="policies/11-webhook.png" alt="OAuth 22" width="800">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We will try to get terminal. Click <code>Pod Name</code></p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="policies/12-webhook.png" alt="OAuth 23" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Click <code>Terminal</code></p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="policies/13-webhook.png" alt="OAuth 24" width="800">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Let&#8217;s lookup your webhook site for this violation information.</p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="policies/14-webhook.png" alt="OAuth 25" width="800">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "alert": {
+    "id": "6f6a33cc-079b-406d-bc55-c5dd955d09ac",
+    "policy": {
+      "id": "8ab0f199-4904-4808-9461-3501da1d1b77",
+      "name": "Kubernetes Actions: Exec into Pod",
+      "description": "Alerts when Kubernetes API receives request to execute command in container",
+      "rationale": "'pods/exec' is non-standard approach for interacting with containers. Attackers with permissions could execute malicious code and compromise resources within a cluster",
+      "remediation": "Restrict RBAC access to the 'pods/exec' resource according to the Principle of Least Privilege. Limit such usage only to development, testing or debugging (non-production) activities",
+      "categories": [
+        "Kubernetes Events"
+****
+          "attrs": [
+            {
+              "key": "pod",
+              "value": "gateway-564d4d85d4-xr6x7"
+            },
+            {
+              "key": "container",
+              "value": "gateway"
+            },
+            {
+              "key": "commands",
+              "value": "sh -i -c TERM=xterm sh"
+            },
+            {
+              "key": "Username",
+              "value": "opentlc-mgr"
+            },
+            {
+              "key": "Groups",
+              "value": "system:authenticated:oauth, system:authenticated"
+            }
+          ]
+****
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
