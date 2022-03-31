@@ -666,15 +666,94 @@ We will create an example policy for Docker Hub Registry because we dont want to
 </ol>
 </div>
 <div class="paragraph">
-<p>Now let&#8217;s check the new policy. We will try to deploy application on Openshift Console.
-. Firstly, we should find our console address.</p>
+<p>Now let&#8217;s check the new policy. We will try to deploy application on Openshift Console.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Firstly, we should find our console address.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/workshop.png" alt="ACS Policies 17" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login this address on your browser</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console1.png" alt="ACS Policies 18" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create Policy repeat steps as shown below. We will create a new project for our tests.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console2.png" alt="ACS Policies 19" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You can fill the name whatever you want.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console3.png" alt="ACS Policies 20" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>At this step Click <code>Topology</code> and <code>Container Image</code> tab.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console4.png" alt="ACS Policies 21" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Image Name: docker.io/mysql:latest</code>  Click <code>Create</code></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console5.png" alt="ACS Policies 22" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Let&#8217;s review the error.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/console6.png" alt="ACS Policies 23" width="800">
+</div>
 </div>
 <div class="paragraph">
-<p>+
-image::policies/workshop.png[ACS Policies 17, 800]</p>
-</div>
-<div class="paragraph">
-<p>+</p>
+<p>Your enforcement works!!!</p>
 </div>
 </div>
 </div>
