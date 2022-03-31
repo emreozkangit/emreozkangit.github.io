@@ -253,10 +253,10 @@
     <a class="nav-link" href="11-integrations.html">ACS Integrations</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#integrate_acs_webhook">Integrate ACS with Webhook for Audit</a>
+    <a class="nav-link" href="#integrate_acs_oauth">Integrate ACS with OpenShift OAuth</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#integrate_acs_oauth">Integrate ACS with OpenShift OAuth</a>
+    <a class="nav-link" href="#integrate_acs_webhook">Integrate ACS with Webhook for Audit</a>
   </li>
 </ul>
   </li>
@@ -453,7 +453,73 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 <div class="sect1">
 <h2 id="integrate_acs_webhook"><a class="anchor" href="#integrate_acs_webhook"></a>Integrate ACS with Webhook for Audit</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>With Red Hat Advanced Cluster Security for Kubernetes, you can send alert notifications as JSON messages to any webhook receiver. When a violation occurs, Red Hat Advanced Cluster Security for Kubernetes makes an HTTP POST request on the configured URL. The POST request body includes JSON-formatted information about the alert.</p>
+</div>
+<div class="paragraph">
+<p>The webhook POST request’s JSON data includes a v1.Alert object and any custom fields that you configure, as shown in the following example:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "alert": {
+    "id": "&lt;id&gt;",
+    "time": "&lt;timestamp&gt;",
+    "policy": {
+      "name": "&lt;name&gt;",
+      ...
+    },
+    ...
+  },
+  "&lt;custom_field_1&gt;": "&lt;custom_value_1&gt;"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this section, we will integrate example webhook for audit logs.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Firsty, login the <code>webhook.site</code> on your private browser. Copy your unique URL. We will use this URL next step.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/01-webhook.png" alt="OAuth 10" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>On the RHACS portal, navigate to Platform Configuration → Integrations. Click <code>Generic Webhook</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/02-webhook.png" alt="OAuth 11" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Click New Integration (add icon).</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/03-webhook.png" alt="OAuth 12" width="800">
+</div>
+</div>
+</li>
+<li>
+<p>Enter a <code>Test Webhook</code> for Integration Name and Enter the webhook URL(you copied URL before) in the Endpoint field.</p>
+</li>
+<li>
+<p>Turn on the Enable Audit Logging toggle, to receive alerts about all the changes made in Red Hat Advanced Cluster Security for Kubernetes.</p>
+</li>
+<li>
+<p>Click <code>Test</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/integrations/04-webhook.png" alt="OAuth 13" width="800">
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <nav class="pagination">
