@@ -618,12 +618,12 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <p>ACS comes some default policy criteria with different categories. <code>Image Registry</code> , <code>Image Contents</code> etc. Let&#8217;s lookup this criterias.You can drag and drop these criterias. For detailed information: <a href="https://docs.openshift.com/acs/3.69/operating/manage-security-policies.html#policy-criteria_manage-security-policies" class="bare">https://docs.openshift.com/acs/3.69/operating/manage-security-policies.html#policy-criteria_manage-security-policies</a></p>
 <div class="imageblock">
 <div class="content">
-<img src="_images/policies/14-policies.png" alt="ACS Policies 14" width="200">
+<img src="_images/policies/14-policies.png" alt="ACS Policies 14" width="100">
 </div>
 </div>
 </li>
 <li>
-<p>We will use <code>Image Registry</code> criteria at the <code>Image Registry</code> category as shown below.You can drag and drog and fill-up the box with <code>hub.docker.io</code></p>
+<p>We will use <code>Image Registry</code> criteria at the <code>Image Registry</code> category as shown below.You can drag and drog and fill-up the box with <code>docker.io</code></p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/policies/15-policies.png" alt="ACS Policies 15" width="800">
@@ -645,6 +645,11 @@ We will create an example policy for Docker Hub Registry because we dont want to
 </li>
 <li>
 <p>For Excluded Images (Build Lifecycle only), select all images that you do not want to trigger a violation for.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/policies/16-policies.png" alt="ACS Policies 16" width="800">
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -659,6 +664,17 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <p>Click <code>Save</code></p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s check the new policy. We will try to deploy application on Openshift Console.
+. Firstly, we should find our console address.</p>
+</div>
+<div class="paragraph">
+<p>+
+image::policies/workshop.png[ACS Policies 17, 800]</p>
+</div>
+<div class="paragraph">
+<p>+</p>
 </div>
 </div>
 </div>
