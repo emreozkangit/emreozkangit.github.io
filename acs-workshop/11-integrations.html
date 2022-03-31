@@ -403,9 +403,9 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 </li>
 <li>
 <p>After Save the integration will appear as Auth Provider</p>
-<div class="imageblock unresolved">
+<div class="imageblock">
 <div class="content">
-<img src="integrations/04-oauth.png" alt="OAuth 4" width="800">
+<img src="_images/integrations/04-oauth.png" alt="OAuth 4" width="800">
 </div>
 </div>
 </li>
@@ -418,7 +418,7 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 </div>
 </li>
 <li>
-<p>Login first with the admin user</p>
+<p>Login first with the opentlc-mgr user</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/integrations/06-oauth.png" alt="OAuth 6" width="400">
@@ -426,7 +426,7 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 </div>
 </li>
 <li>
-<p>Admin user will have the role Admin in RH ACS, so will have full privileges in the ACS console. Check that you have full view of the Violations or Compliance among others.</p>
+<p>opentlc-mgr user will have the role Admin in RH ACS, so will have full privileges in the ACS console. Check that you have full view of the Violations or Compliance among others.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/integrations/07-oauth.png" alt="OAuth 7" width="700">
@@ -442,18 +442,10 @@ For example the user with the name admin gets the role Admin assigned. On the ot
 </div>
 </li>
 <li>
-<p>This user have very limited privileges and for example cannot see the Violations in the cluster neither compliance</p>
+<p>This user have read-only privileges and for example cannot edit the Policy or etc in the cluster</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/integrations/09-oauth.png" alt="OAuth 9" width="800">
-</div>
-</div>
-</li>
-<li>
-<p>This user only have the role of the Continuous Integration, so will only have access to the CVE analysis in the Vulnerability Management among others, but not other actions like the Violations, Policies, etc</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/integrations/10-oauth.png" alt="OAuth 10" width="800">
 </div>
 </div>
 </li>
