@@ -271,7 +271,13 @@
     <a class="nav-link" href="#system_configuration">ACS System Configuration</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#system_health">ACS System Health</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#system_health_diagnostic">Generating System Bundle</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="#access_control">ACS Access Control</a>
@@ -478,6 +484,42 @@
 </li>
 </ol>
 </div>
+<div class="sect2">
+<h3 id="system_health_diagnostic"><a class="anchor" href="#system_health_diagnostic"></a>Generating Diagnostic Bundle</h3>
+<div class="paragraph">
+<p>You can generate a diagnostic bundle and send that data to enable the support team to provide insights into the status and health of Red Hat Advanced Cluster Security for Kubernetes components.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat might request you to send the diagnostic bundle during investigation of your issues with Red Hat Advanced Cluster Security for Kubernetes. You can generate a diagnostic bundle and inspect its data before sending.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s create test diagnostic bundle using RHACS portal.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the RHACS portal, select <code>Platform Configuration</code> → <code>System Health</code></p>
+</li>
+<li>
+<p>On the <code>System Health</code> view header, click <code>Generate Diagnostic Bundle</code></p>
+</li>
+<li>
+<p>For the <code>Filter by clusters</code> drop-down menu, select the clusters for which you want to generate the diagnostic data.</p>
+</li>
+<li>
+<p>For <code>Filter by starting time</code> , specify the date and time (in UTC format) from which you want to include the diagnostic data.</p>
+</li>
+<li>
+<p>Click <code>Download Diagnostic Bundle</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/multicluster/12_multi.png" alt="ACS Multi 12" width="800">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -492,7 +534,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Red Hat Advanced Cluster Security for Kubernetes 3.63 includes a scoped access control feature that enables you to configure fine-grained and specific sets of permissions that define how a given Red Hat Advanced Cluster Security for Kubernetes user or a group of users can interact with Red Hat Advanced Cluster Security for Kubernetes, which resources they can access, and which actions they can perform.</p>
+<p>Red Hat Advanced Cluster Security for Kubernetes 3.69 includes a scoped access control feature that enables you to configure fine-grained and specific sets of permissions that define how a given Red Hat Advanced Cluster Security for Kubernetes user or a group of users can interact with Red Hat Advanced Cluster Security for Kubernetes, which resources they can access, and which actions they can perform.</p>
 </div>
 <div class="ulist">
 <ul>
