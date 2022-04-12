@@ -292,6 +292,9 @@
     <a class="nav-link" href="#integration_demo_ocp_pipelines">Integration Demo - Openshift Pipelines with RHACS</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#integration_demo_ocp_pipelines_roxctl">Use Roxctl Tool</a>
+  </li>
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="#integration_demo_ocp_pipelines_tkn_cli">Use Tekton Pipelines CLI</a>
   </li>
 </ul>
@@ -342,19 +345,6 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section shows how OpenShift Pipelines, based on the Tekton open source project, can be used to automate the execution of Red Hat Advanced Cluster Security for Kubernetes as part of a wider continuous integration solution.The objective is to bring into the continuous integration process the validation of Kubernetes resources such that any violations against defined policy can be addressed earlier in the development life cycle.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rhacs_command_line_interface"><a class="anchor" href="#_rhacs_command_line_interface"></a>RHACS Command Line Interface</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Red Hat Advanced Cluster Security for Kubernetes has a command line interface (roxctl) for the evaluation of images and resources against policy definitions held on the RHACS server. The command line interface may be downloaded from the RHACS web user interface for ad-hoc use, roxctl is downloaded from the RHACS server during each execution of the analysis. This ensures that the correct version matching the server is always used.</p>
-</div>
-<div class="sect2">
-<h3 id="_roxctl_analysis_options"><a class="anchor" href="#_roxctl_analysis_options"></a>Roxctl Analysis Options</h3>
-<div class="paragraph">
-<p>The roxctl command line interface has a number of options for resource and image analysis. Of particular interest in this section is the “deployment” option, which traditionally is used to check for deployment readiness of Kubernetes resources. By using this option during the build phase of development, teams can get a much earlier indication of deployment issues rather than waiting until deployment time. This enables teams to fix the problems during development, which will lower costs and lead to smoother deployments.</p>
 </div>
 <div class="paragraph">
 <p>On your own demo environment, Red Hat deployed a pipeline example. Let&#8217;s examine.</p>
@@ -409,6 +399,59 @@ Project should be <code>stackrox-pipeline-demo</code>
 </div>
 </li>
 </ol>
+</div>
+<div class="sect2">
+<h3 id="integration_demo_ocp_pipelines_roxctl"><a class="anchor" href="#integration_demo_ocp_pipelines_roxctl"></a>Use Roxctl Tool</h3>
+<div class="sect3">
+<h4 id="_rhacs_command_line_interface"><a class="anchor" href="#_rhacs_command_line_interface"></a>RHACS Command Line Interface</h4>
+<div class="paragraph">
+<p>Red Hat Advanced Cluster Security for Kubernetes has a command line interface (roxctl) for the evaluation of images and resources against policy definitions held on the RHACS server. The command line interface may be downloaded from the RHACS web user interface for ad-hoc use, roxctl is downloaded from the RHACS server during each execution of the analysis. This ensures that the correct version matching the server is always used.</p>
+</div>
+<div class="sect4">
+<h5 id="_roxctl_analysis_options"><a class="anchor" href="#_roxctl_analysis_options"></a>Roxctl Analysis Options</h5>
+<div class="paragraph">
+<p>The roxctl command line interface has a number of options for resource and image analysis. Of particular interest in this section is the “deployment” option, which traditionally is used to check for deployment readiness of Kubernetes resources. By using this option during the build phase of development, teams can get a much earlier indication of deployment issues rather than waiting until deployment time. This enables teams to fix the problems during development, which will lower costs and lead to smoother deployments.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s download Roxctl Tool to check and scan some images.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login your terminal and Download the latest version of the roxctl CLI:</p>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -O <a href="https://mirror.openshift.com/pub/rhacs/assets/3.69.1/bin/Linux/roxctl" class="bare">https://mirror.openshift.com/pub/rhacs/assets/3.69.1/bin/Linux/roxctl</a></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make the roxctl binary executable:</p>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">chmod +x roxctl</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Place the roxctl binary in a directory that is on your PATH:</p>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo mv roxctl /usr/local/bin/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify the roxctl version you have installed:</p>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">roxctl version</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
