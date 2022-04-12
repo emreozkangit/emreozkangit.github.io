@@ -343,12 +343,78 @@
 <h2 id="_rhacs_command_line_interface"><a class="anchor" href="#_rhacs_command_line_interface"></a>RHACS Command Line Interface</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Red Hat Advanced Cluster Security for Kubernetes has a command line interface (roxctl) for the evaluation of images and resources against policy definitions held on the RHACS server. The command line interface may be downloaded from the RHACS web user interface for ad-hoc use, and in the automation steps presented here, roxctl is downloaded from the RHACS server during each execution of the analysis. This ensures that the correct version matching the server is always used.</p>
+<p>Red Hat Advanced Cluster Security for Kubernetes has a command line interface (roxctl) for the evaluation of images and resources against policy definitions held on the RHACS server. The command line interface may be downloaded from the RHACS web user interface for ad-hoc use, roxctl is downloaded from the RHACS server during each execution of the analysis. This ensures that the correct version matching the server is always used.</p>
 </div>
 <div class="sect2">
 <h3 id="_roxctl_analysis_options"><a class="anchor" href="#_roxctl_analysis_options"></a>Roxctl Analysis Options</h3>
 <div class="paragraph">
 <p>The roxctl command line interface has a number of options for resource and image analysis. Of particular interest in this section is the “deployment” option, which traditionally is used to check for deployment readiness of Kubernetes resources. By using this option during the build phase of development, teams can get a much earlier indication of deployment issues rather than waiting until deployment time. This enables teams to fix the problems during development, which will lower costs and lead to smoother deployments.</p>
+</div>
+<div class="paragraph">
+<p>On your own demo environment, Red Hat deployed a pipeline example. Let&#8217;s examine.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login your OpenShift Console and change your view to Administrator</p>
+</li>
+<li>
+<p>Click <code>Pipelines</code> and <code>Pipeline Runs</code> section as shown below.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Project should be <code>stackrox-pipeline-demo</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cicd/00_pipeline.png" alt="ACS Cicd 1" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click one of the <code>Failed</code> Pipeline Runs</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cicd/01_pipeline.png" alt="ACS Cicd 2" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Now, you can see some summary of your Pipeline at the right down side.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cicd/02_pipeline.png" alt="ACS Cicd 3" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Looking closer at the detail of the tasks in the pipeline, and examining the output of the “deploy-check” task shows that more files have been examined as shown below.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/cicd/03_pipeline.png" alt="ACS Cicd 4" width="800">
+</div>
 </div>
 </div>
 </div>
