@@ -288,7 +288,13 @@
     <a class="nav-link" href="13-cicd.html">DevSecOps Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#integration_demo_ocp_pipelines">Integration Demo - Openshift Pipelines with RHACS</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#integration_demo_ocp_pipelines_tkn_cli">Use Tekton Pipelines CLI</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -403,6 +409,12 @@ Project should be <code>stackrox-pipeline-demo</code>
 </div>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="integration_demo_ocp_pipelines_tkn_cli"><a class="anchor" href="#integration_demo_ocp_pipelines_tkn_cli"></a>Use Tekton Pipelines CLI</h3>
+<div class="paragraph">
+<p>The process shown in this demo is a simple way to include the execution of the roxctl policy scanner for resources as part of a continuous integration process. This is a quick way to “shift left” the resource analysis and to bring good practices for writing application resources to the attention of developers. Highlighting and fixing issues earlier in the development process will reduce cost and rework and lead to more reliable and secure applications.</p>
 </div>
 </div>
 </div>
