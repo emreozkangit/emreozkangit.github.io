@@ -503,8 +503,8 @@ Security gets their enforcement, and DevOps sees a “normal” failure from the
 <div class="ulist">
 <ul>
 <li>
-<p>Enter an example Name for the policy. <code>Example Docker Hub Policy</code>
-We will create an example policy for Docker Hub Registry because we dont want to download images from this registry.</p>
+<p>Enter an example Name for the policy. <code>Example Process Policy</code>
+We will create an example policy for process.</p>
 </li>
 <li>
 <p>Select a Severity level for this policy, either Critical, High, Medium, or Low. You can select <code>Medium</code></p>
@@ -516,10 +516,10 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <p>Enter details about the policy in the Description box.</p>
 </li>
 <li>
-<p>Enter an explanation about why the policy exists in the Rationale box. <code>we dont want to download images from this registry.</code></p>
+<p>Enter an explanation about why the policy exists in the Rationale box. <code>we dont want to use dd command in the container.</code></p>
 </li>
 <li>
-<p>Enter steps to resolve violations of this policy in the Guidance box.Developer can see this message. For example <code>You can use just registry.redhat.io images. Please change your current image.</code></p>
+<p>Enter steps to resolve violations of this policy in the Guidance box.Users can see this message. For example <code>Please dont use "dd" command in the container</code></p>
 </li>
 <li>
 <p>Optional: Under the MITRE ATT&amp;CK section, select the tactics and the techniques you want to specify for the policy.You can add tactics and techniques for this policy.</p>
@@ -540,7 +540,7 @@ We will create an example policy for Docker Hub Registry because we dont want to
 <div class="ulist">
 <ul>
 <li>
-<p>Choose Lifecycle Stages to which your policy is applicable, from Build, Deploy, or Runtime.  We will select <code>Build and Deploy</code> for this example. You can select more than one stage.</p>
+<p>Choose Lifecycle Stages to which your policy is applicable, from Build, Deploy, or Runtime.  We will select <code>Runtime</code> for this example. You can select more than one stage.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -611,7 +611,7 @@ We will create an example policy for Docker Hub Registry because we dont want to
 </div>
 </li>
 <li>
-<p>We will use <code>Image Registry</code> criteria at the <code>Image Registry</code> category as shown below.You can drag and drog and fill-up the box with <code>docker.io</code></p>
+<p>We will use <code>Process Activity</code> criteria at the <code>Process Name</code> category as shown below.You can drag and drog and fill-up the box with <code>dd</code></p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/policies/15-policies.png" alt="ACS Policies 15" width="800">
@@ -654,7 +654,7 @@ We will create an example policy for Docker Hub Registry because we dont want to
 </ol>
 </div>
 <div class="paragraph">
-<p>Now let&#8217;s check the new policy. We will try to deploy application on Openshift Console.</p>
+<p>Now let&#8217;s check the new policy. We will try to run <code>dd</code> command one of container on Openshift Console.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
