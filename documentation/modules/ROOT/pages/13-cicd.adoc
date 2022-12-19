@@ -1,0 +1,32 @@
+= ACS DevSecOps Pipelines
+include::_attributes.adoc[]
+:profile: acs
+
+[#integration_demo_ocp_pipelines]
+== Integration Demo - Openshift Pipelines with RHACS
+
+This section shows how OpenShift Pipelines, based on the Tekton open source project, can be used to automate the execution of Red Hat Advanced Cluster Security for Kubernetes as part of a wider continuous integration solution.The objective is to bring into the continuous integration process the validation of Kubernetes resources such that any violations against defined policy can be addressed earlier in the development life cycle.
+
+On your own demo environment, Red Hat deployed a pipeline example. Let's examine.
+
+. Login your OpenShift Console and change your view to Administrator
++
+NOTE: Project should be ``stackrox-pipeline-demo``
+
+. Click ``Pipelines`` and ``Pipeline Runs`` section as shown below. 
++ 
+image::cicd/00_pipeline.png[ACS Cicd 1, 800]
+
+. Click one of the ``Failed`` Pipeline Runs
++
+image::cicd/01_pipeline.png[ACS Cicd 2, 800]
+
+. Now, you can see some summary of your Pipeline at the right down side.
++
+image::cicd/02_pipeline.png[ACS Cicd 3, 800]
+
+. Looking closer at the detail of the tasks in the pipeline, and examining the output of the “deploy-check” task shows that more files have been examined as shown below.
++
+image::cicd/03_pipeline.png[ACS Cicd 4, 800]
+
+The process shown in this demo is a simple way to include the execution of the roxctl policy scanner for resources as part of a continuous integration process. This is a quick way to “shift left” the resource analysis and to bring good practices for writing application resources to the attention of developers. Highlighting and fixing issues earlier in the development process will reduce cost and rework and lead to more reliable and secure applications.

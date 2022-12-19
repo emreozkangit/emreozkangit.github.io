@@ -1,0 +1,187 @@
+= Integrations
+include::_attributes.adoc[]
+:profile: acs
+
+NOTE: In RHACS the Scanner component only scans those images that are not already scanned by other integrated vulnerability scanners. It means that if you have integrated Red Hat Advanced Cluster Security for Kubernetes with other vulnerability scanners, Scanner checks and uses the scanning results from the integrated scanner if available.
+
+[#integrate_acs_oauth]
+== Integrate ACS with OpenShift OAuth
+
+Red Hat Advanced Cluster Security (RHACS) Central is installed with one administrator user by default. Typically, customers request an integration with existing Identity Provider(s) (IDP). 
+
+RHACS offers different options for such integration. In this section we will see the integration with OpenShift OAuth.
+
+NOTE: It is assumed that RHACS is already installed and login to the Central UI is available. 
+
+. Login to your RHACS and select “Platform Configuration” > “Access Control”
++
+image::integrations/01-oauth.png[OAuth 1, 400]
+
+. From the drop down menu Add auth provider select OpenShift Auth
++
+image::integrations/02-oauth.png[OAuth 2, 200]
+
+. Enter a Name for your provider and select a default role which is assigned to any user who can authenticate.
+It is recommended to select the role None, so new accounts will have no privileges in RHACS.
+With Rules you can assign roles to specific users, based on their userid, name, mail address or groups.
+For example the user with the name admin gets the role Admin assigned. On the other hand the user1 will have the role of Read-Only Analyst.
++
+image::integrations/03-oauth.png[OAuth 3, 800]
+
+. After Save the integration will appear as Auth Provider
++
+image::integrations/04-oauth.png[OAuth 4, 800]
+
+. In a private windows of your browser login into the RH ACS portal, and check the OpenShift OAuth auth provider that you set up
++
+image::integrations/05-oauth.png[OAuth 5, 400]
+
+. Login first with the opentlc-mgr user
++
+image::integrations/06-oauth.png[OAuth 6, 400]
+
+. opentlc-mgr user will have the role Admin in RH ACS, so will have full privileges in the ACS console. Check that you have full view of the Violations or Compliance among others.
++
+image::integrations/07-oauth.png[OAuth 7, 700]
+
+. Logout and login again but this time with the user user1 ( Password: ``openshift`` ) instead
++
+image::integrations/08-oauth.png[OAuth 8, 500]
+
+. This user have read-only privileges and for example cannot edit the Policy or etc in the cluster 
++
+image::integrations/09-oauth.png[OAuth 9, 800]
+
+[#integrate_acs_webhook]
+== Integrate ACS with Webhook for Audit
+
+With Red Hat Advanced Cluster Security for Kubernetes, you can send alert notifications as JSON messages to any webhook receiver. When a violation occurs, Red Hat Advanced Cluster Security for Kubernetes makes an HTTP POST request on the configured URL. The POST request body includes JSON-formatted information about the alert.
+
+The webhook POST request’s JSON data includes a v1.Alert object and any custom fields that you configure, as shown in the following example:
+
+[.console-input]
+[source,json,subs="attributes+,+macros"]	
+----	
+{
+  "alert": {
+    "id": "<id>",
+    "time": "<timestamp>",
+    "policy": {
+      "name": "<name>",
+      ...
+    },
+    ...
+  },
+  "<custom_field_1>": "<custom_value_1>"
+}
+----
+
+In this section, we will integrate example webhook for audit logs.
+
+. Firsty, login the ``webhook.site`` on your private browser. Copy your unique URL. We will use this URL next step.
++
+image::integrations/01-webhook.png[OAuth 10, 800]
+
+. On the RHACS portal, navigate to Platform Configuration → Integrations. Click ``Generic Webhook``
++
+image::integrations/02-webhook.png[OAuth 11, 800]
+
+. Click New Integration (add icon).
++
+image::integrations/03-webhook.png[OAuth 12, 800]
+
+. Enter a ``Test Webhook`` for Integration Name and Enter the webhook URL(you copied URL before) in the Endpoint field.
+. Turn on the Enable Audit Logging toggle, to receive alerts about all the changes made in Red Hat Advanced Cluster Security for Kubernetes.
+. Click ``Test`` 
++
+image::integrations/04-webhook.png[OAuth 13, 800]
+
+. If your test result success,then Click ``Save``
++
+image::integrations/05-webhook.png[OAuth 14, 800]
+
+. You should see 2 alert message on your webhook site; Test message and Created Webhook message. Let's examine.
++
+image::integrations/06-webhook.png[OAuth 15, 800]
+
+=== Configuring policy notifications
+
+Now, we will enable notification one of  the policy and  will try to get alert of this policy violations.
+
+. On the RHACS portal, navigate to ``Platform Configuration`` → ``Policies`` and Find  ``Kubernetes Actions: Exec into Pod`` policy using filter. Follow up the below screenshot steps.
++
+image::integrations/07-webhook.png[OAuth 16, 800]
+
+. Click the name of the policy and ``Actions``and ``Edit Policy`` 
++
+image::integrations/08-webhook.png[OAuth 17, 800]
+
+. At the right side, you should see your webhook name we created earlier. Enable your webhook name and ``save`` the policy.
++
+image::integrations/09-webhook.png[OAuth 18, 800]
+
+. Now, you should see like this in the policy page.
++
+image::integrations/10-webhook.png[OAuth 19, 800]
+
+. Let's try to create a new violation for this policy. Login your Openshift Console.You can find details on your workshop page as shown below.
++
+image::policies/workshop.png[OAuth 20, 800]
++
+. On Administrator screen, Filter and Click ``payments`` project as shown below.
++
+image::integrations/11-webhook.png[OAuth 22, 800]
++
+* We will try to get terminal. Click ``Pod Name``
++
+image::integrations/12-webhook.png[OAuth 23, 800]
++
+* Click ``Terminal``
++
+image::integrations/13-webhook.png[OAuth 24, 800]
++
+. Let's lookup your webhook site for this violation information.
++
+image::integrations/14-webhook.png[OAuth 25, 800]
+
+[.console-input]
+[source,json,subs="attributes+,+macros"]	
+----	
+{
+  "alert": {
+    "id": "6f6a33cc-079b-406d-bc55-c5dd955d09ac",
+    "policy": {
+      "id": "8ab0f199-4904-4808-9461-3501da1d1b77",
+      "name": "Kubernetes Actions: Exec into Pod",
+      "description": "Alerts when Kubernetes API receives request to execute command in container",
+      "rationale": "'pods/exec' is non-standard approach for interacting with containers. Attackers with permissions could execute malicious code and compromise resources within a cluster",
+      "remediation": "Restrict RBAC access to the 'pods/exec' resource according to the Principle of Least Privilege. Limit such usage only to development, testing or debugging (non-production) activities",
+      "categories": [
+        "Kubernetes Events"
+****
+          "attrs": [
+            {
+              "key": "pod",
+              "value": "gateway-564d4d85d4-xr6x7"
+            },
+            {
+              "key": "container",
+              "value": "gateway"
+            },
+            {
+              "key": "commands",
+              "value": "sh -i -c TERM=xterm sh"
+            },
+            {
+              "key": "Username",
+              "value": "opentlc-mgr"
+            },
+            {
+              "key": "Groups",
+              "value": "system:authenticated:oauth, system:authenticated"
+            }
+          ]
+****
+  }
+}
+----
