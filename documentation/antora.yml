@@ -1,7 +1,0 @@
-name: acs-workshop
-title: ACS Workshop
-version: master
-nav:
-  - modules/ROOT/nav.adoc
-
-start_page: ROOT:index.adoc

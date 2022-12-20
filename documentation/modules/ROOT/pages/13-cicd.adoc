@@ -1,5 +1,0 @@
-= ACS DevSecOps Pipelines
-include::_attributes.adoc[]
-:profile: acs
-
-TBD
