@@ -60,7 +60,7 @@
 * xref:11-integrations.adoc[ACS Integrations]
 ** xref:11-integrations.adoc#integrate_acs_oauth[Integrate ACS with OpenShift OAuth]
 ** xref:11-integrations.adoc#integrate_acs_webhook[Integrate ACS with Webhook for Audit]
-** xref:11-cosign.adoc#cosign_acs[Integrate ACS with Cosign for Image Signature]
+** xref:11-integrations.adoc#integrate_acs_cosign[Integrate ACS with Cosign for Image Signature]
 
 
 * xref:12-platform_configuration.adoc[ACS Secure Cluster Management]
