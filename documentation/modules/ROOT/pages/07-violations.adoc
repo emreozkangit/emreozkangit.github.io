@@ -1,5 +1,0 @@
-= Violations
-include::_attributes.adoc[]
-:profile: acs
-
-TBD
